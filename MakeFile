@@ -1,0 +1,3 @@
+ChessOut: ChessOut.c
+	gcc -g -Wall -o Main ChessOut.c
+

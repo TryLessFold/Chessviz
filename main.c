@@ -2,6 +2,8 @@
 #include<string>
 #include<stdlib.h>
 #include<stdio.h>
+#include "ChessOut.h"
+
 int a[8][8];
 void SwapMove(int &a, int &b)
 {
@@ -106,14 +108,9 @@ int main()
     a[0][7] = 8; a[1][7] = 7;
 
     //вывод первоначальной доски, вот такой скучный комментарий 
-    for (int cake = 0; cake < 5; cake++)
-    {
-	for (i = 0; i < 8; i++)
-	{
-	    for (j = 0; j < 8; j++)
-		printf("%2d ", a[i][j]);
-	    printf("\n");
-	}
+        for (int cake=0; cake<5; cake++)
+        {
+        stdout_chess(int a[8][8]);
 	printf("\n");
 	//123
 	//ввод координат, где i и j	- кординаты из которых нужно походить, а i1 и j1 - координаты в которые нужно походить, да-да я знаю что можно было сделать лучше 

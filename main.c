@@ -1,14 +1,10 @@
-#include<iostream>
-#include<string>
 #include<stdlib.h>
 #include<stdio.h>
 #include "ChessOut.h"
-
-int a[8][8];
-void SwapMove(int &a, int &b)
+void SwapMove(int *k, int *r)
 {
-    b = a;
-    a = 0;
+    *r = *k;
+    *k = 0;
 }
 int CheckMove(int a[8][8], int y, int x, int y1, int x1) //0 - Невозможно походить, 1 - обычный ход, 2 - ход на врага, 3 - ход на союзника, 4-нет фигуры.
 {
@@ -67,7 +63,7 @@ int CheckMove(int a[8][8], int y, int x, int y1, int x1) //0 - Невозмож�
 }
 int main()
 {
-    int i, j, i1, j1, turn, pass;
+  int i, j, i1, j1, turn, pass,a[8][8];
     /*описываем все элементы шахмотной доски где:
     1-пешка 4-ладья 3-конь 2-слон 5-ферзь 6-король
     знаком минус помеченна команда черных (не людей)*/
@@ -127,8 +123,14 @@ int main()
 	pass = CheckMove(a, i, j, i1, j1);
 	if (pass == 0) printf("Cake\n");
 	if (pass == 3) printf("Cake\n");
-	if (pass == 1) SwapMove(a[i][j],a[i1][j1]);
-	if (pass == 2) SwapMove(a[i][j],a[i1][j1]);
+	if (pass == 1)
+	  {
+	    SwapMove(&a[i][j], &a[i1][j1]);
+	  }
+	if (pass == 2)
+	  {
+	    SwapMove(&a[i][j], &a[i1][j1]);
+	  }
 	if (pass == 4) printf("Cakeislie\n");
 	//вызов функции в которой описанны все случаи ходов, нет, я не переборщил засунов все в одну функцию p.s. смотреть выше в начале проге
 	system("Pause");

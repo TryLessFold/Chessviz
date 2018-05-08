@@ -1,15 +1,21 @@
 FLAGS=-std=c99 -c
 
-all: MainProg
+all: create MainProg
 
-MainProg: main.o ChessOut.o
-	gcc -o MainProg *.o
+run: all
+	./bin/MainProg
 
-main.o: main.c
-	gcc $(FLAGS) main.c
+MainProg: build/main.o build/ChessOut.o
+	gcc -o bin/MainProg build/*.o
 
-ChessOut.o: ChessOut.c
-	gcc $(FLAGS) ChessOut.c
+build/main.o: src/main.c
+	gcc $(FLAGS) src/main.c -o build/main.o
+
+build/ChessOut.o: src/ChessOut.c
+	gcc $(FLAGS) src/ChessOut.c -o build/ChessOut.o
+
+create:
+	mkdir -p build/ bin/
 
 clean:
-	rm -rf *.o MainProg
+	rm -rf build/ bin/

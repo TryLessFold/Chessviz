@@ -1,5 +1,7 @@
 FLAGS=-std=c99 -c
 
+.PHONY: clean
+
 all: create MainProg
 
 run: all

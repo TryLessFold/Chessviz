@@ -1,12 +1,16 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include "ChessOut.h"
+#include <iostream>
+
+using namespace std;
+
 void SwapMove(int *k, int *r)
 {
     *r = *k;
     *k = 0;
 }
-int CheckMove(int a[8][8], int y, int x, int y1, int x1) //0 - Невозможно походить, 1 - обычный ход, 2 - ход на врага, 3 - ход на союзника, 4-нет фигуры.
+int CheckMove(int **a, int y, char x, int y1, char x1) //0 - Невозможно походить, 1 - обычный ход, 2 - ход на врага, 3 - ход на союзника, 4-нет фигуры.
 {
     int chmove, CheckPlace;
     if (a[y][x] != 0)
@@ -63,7 +67,11 @@ int CheckMove(int a[8][8], int y, int x, int y1, int x1) //0 - Невозмож�
 }
 int main()
 {
-  int i, j, i1, j1, turn, pass,a[8][8];
+  int i, i1, turn, pass,**a;
+  char j, j1;
+  a = new int*[8];
+  for(int i =0;i<8;i++)
+   a[i]= new int[8];
     /*описываем все элементы шахмотной доски где:
     1-пешка 4-ладья 3-конь 2-слон 5-ферзь 6-король
     знаком минус помеченна команда черных (не людей)*/
@@ -110,16 +118,24 @@ int main()
 	printf("\n");
 	//123
 	//ввод координат, где i и j	- кординаты из которых нужно походить, а i1 и j1 - координаты в которые нужно походить, да-да я знаю что можно было сделать лучше 
-	printf("input i ");
-	scanf("%d", &i);
-	printf("input j ");
-	scanf("%d", &j);
-
-	printf("input i1 ");
-	scanf("%d", &i1);
-	printf("input j1 ");
-	scanf("%d", &j1);
-	printf("Pass = %d\n", CheckMove(a, i, j, i1, j1));
+       	printf("input number: ");
+	//	scanf("%d", &i);
+	cin >> i; 
+	printf("input char: ");
+	cin >> j;
+	//	scanf("%c", &j);
+	printf("input number to: ");
+	cin>>i1;
+	//	scanf("%d", &i1);
+	printf("input char to: ");
+	cin>>j1;
+	//	scanf("%c", &j1);
+	i--;
+	i1--;
+        j-='a';
+	j1-='a';
+	printf("%d\n%d\n",j, j1);
+	printf("Pass = %d\n", CheckMove(a, i,j, i1, j1));
 	pass = CheckMove(a, i, j, i1, j1);
 	if (pass == 0) printf("Cake\n");
 	if (pass == 3) printf("Cake\n");

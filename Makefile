@@ -7,7 +7,7 @@ all: create MainProg
 run: all
 	./bin/MainProg
 
-MainProg: build/src/main.o build/src/ChessOut.o
+MainProg: build/src/main.o build/src/ChessOut.o build/src/ChessCheck.o
 	g++ -o bin/MainProg build/src/*.o
 
 test: build/test/main.o build/test/chess_test.o
@@ -19,11 +19,14 @@ build/src/main.o: src/main.c
 build/src/ChessOut.o: src/ChessOut.c
 	g++ $(FLAGS) src/ChessOut.c -o build/src/ChessOut.o
 
+build/src/ChessCheck.o: src/ChessCheck.c
+	g++ $(FLAGS) src/ChessCheck.c -o build/src/ChessCheck.o
+
 build/test/main.o: test/main.c
-	g++ $(FLAGS) test main.c -o build/test/src/main.o
+	g++ $(FLAGS) test main.c -o build/test/main.o
 
 build/test/chess_test.o: test/chess_test.c
-	g++ $(FLAGS) test chess_test.c -o build/test/src/chess_test.o
+	g++ $(FLAGS) test chess_test.c -o build/test/chess_test.o
 
 create:
 	mkdir -p build/ bin/ build/src build/test

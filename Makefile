@@ -23,10 +23,10 @@ build/src/ChessCheck.o: src/ChessCheck.c
 	g++ $(FLAGS) src/ChessCheck.c -o build/src/ChessCheck.o
 
 build/test/main.o: test/main.c
-	g++ $(FLAGS) test main.c -o build/test/main.o
+	g++ -I thirdparty src $(FLAGS) test/main.c -o build/test/main.o
 
 build/test/chess_test.o: test/chess_test.c
-	g++ $(FLAGS) test chess_test.c -o build/test/chess_test.o
+	g++ -I thirdparty src $(FLAGS) test/chess_test.c -o build/test/chess_test.o
 
 create:
 	mkdir -p build/ bin/ build/src build/test

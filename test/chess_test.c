@@ -1,4 +1,4 @@
-#include <src/ChessCheck.h>
+#include <ChessCheck.h>
 
 #include <ctest.h>
 

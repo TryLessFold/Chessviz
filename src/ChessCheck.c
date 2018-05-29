@@ -1,8 +1,8 @@
-#include <iostream>
+//#include <iostream>
 #include<stdlib.h>
 #include<stdio.h>
 
-int CheckMove(int **a, int y, int x, int y1, int x1)
+int CheckMove(int a[8][8], int y, int x, int y1, int x1)
 {
 	int chmove, CheckPlace, k = 0, i, j;
 	if (a[y][x] != 0)

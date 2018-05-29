@@ -1,8 +1,9 @@
 #include <ChessCheck.h>
 
+
 #include <ctest.h>
 
-void FillMass(int **a)
+void FillMass(int a[8][8])
 {
     a[7][0] = 0; a[6][0] = 0;
     a[7][1] = 0; a[6][1] = 0;
@@ -43,7 +44,7 @@ void FillMass(int **a)
 
 CTEST(suit1, test1)
 {
-    int a[10][10];
+    int a[8][8];
     FillMass(a);
     const int i=4;
     const int j=4;
@@ -56,7 +57,7 @@ CTEST(suit1, test1)
 }
 CTEST(suit1, test2)
 {
-    int a[10][10];
+    int a[8][8];
     FillMass(a);
     const int i=4;
     const int j=4;
@@ -69,11 +70,11 @@ CTEST(suit1, test2)
 }
 CTEST(suit1, test3)
 {
-    int a[10][10];
+    int a[8][8];
     FillMass(a);
     const int i=4;
     const int j=4;
-    const int i1=3;
+    const int i1=2;
     const int j1=6;
     const int result = CheckMove(a, i,j, i1, j1);
 
@@ -82,12 +83,12 @@ CTEST(suit1, test3)
 }
 CTEST(suit1, test4)
 {
-    int a[10][10];
+    int a[8][8];
     FillMass(a);
     const int i=4;
     const int j=4;
     const int i1=6;
-    const int j1=3;
+    const int j1=2;
     const int result = CheckMove(a, i,j, i1, j1);
 
     const int expected = 1;
@@ -95,7 +96,7 @@ CTEST(suit1, test4)
 }
 CTEST(suit1, test5)
 {
-    int a[10][10];
+    int a[8][8];
     FillMass(a);
     const int i=4;
     const int j=4;
@@ -108,7 +109,7 @@ CTEST(suit1, test5)
 }
 CTEST(suit1, test6)
 {
-    int a[10][10];
+    int a[8][8];
     FillMass(a);
     const int i=4;
     const int j=4;
@@ -121,7 +122,7 @@ CTEST(suit1, test6)
 }
 CTEST(suit1, test7)
 {
-    int a[10][10];
+    int a[8][8];
     FillMass(a);
     const int i=4;
     const int j=4;
@@ -134,7 +135,7 @@ CTEST(suit1, test7)
 }
 CTEST(suit1, test8)
 {
-    int a[10][10];
+    int a[8][8];
     FillMass(a);
     const int i=4;
     const int j=4;

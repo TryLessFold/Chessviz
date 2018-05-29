@@ -1,5 +1,7 @@
-$ cat .gitignore
 *.txt
 *.md
 ignore/
 .ignore/
+bin/
+build/
+

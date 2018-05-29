@@ -42,7 +42,7 @@ void FillMass(int a[8][8])
     a[0][7] = 0; a[1][7] = 0;
 }
 
-CTEST(suit1, test1)
+CTEST(queen, down_right)
 {
     int a[8][8];
     FillMass(a);
@@ -55,7 +55,7 @@ CTEST(suit1, test1)
     const int expected = 1;
     ASSERT_EQUAL(expected, result);
 }
-CTEST(suit1, test2)
+CTEST(queen, up_left)
 {
     int a[8][8];
     FillMass(a);
@@ -68,7 +68,7 @@ CTEST(suit1, test2)
     const int expected = 1;
     ASSERT_EQUAL(expected, result);
 }
-CTEST(suit1, test3)
+CTEST(queen, up_right)
 {
     int a[8][8];
     FillMass(a);
@@ -81,7 +81,7 @@ CTEST(suit1, test3)
     const int expected = 1;
     ASSERT_EQUAL(expected, result);
 }
-CTEST(suit1, test4)
+CTEST(queen, down_left)
 {
     int a[8][8];
     FillMass(a);
@@ -94,7 +94,7 @@ CTEST(suit1, test4)
     const int expected = 1;
     ASSERT_EQUAL(expected, result);
 }
-CTEST(suit1, test5)
+CTEST(queen, right)
 {
     int a[8][8];
     FillMass(a);
@@ -107,7 +107,7 @@ CTEST(suit1, test5)
     const int expected = 1;
     ASSERT_EQUAL(expected, result);
 }
-CTEST(suit1, test6)
+CTEST(queen, down)
 {
     int a[8][8];
     FillMass(a);
@@ -120,7 +120,7 @@ CTEST(suit1, test6)
     const int expected = 1;
     ASSERT_EQUAL(expected, result);
 }
-CTEST(suit1, test7)
+CTEST(queen, left)
 {
     int a[8][8];
     FillMass(a);
@@ -133,7 +133,7 @@ CTEST(suit1, test7)
     const int expected = 1;
     ASSERT_EQUAL(expected, result);
 }
-CTEST(suit1, test8)
+CTEST(queen, up)
 {
     int a[8][8];
     FillMass(a);

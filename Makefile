@@ -1,4 +1,4 @@
-FLAGS=-c -w
+FLAGS=-c -w -std=c99
 
 .PHONY: clean
 

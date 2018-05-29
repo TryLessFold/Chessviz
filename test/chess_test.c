@@ -146,3 +146,57 @@ CTEST(queen, up)
     const int expected = 1;
     ASSERT_EQUAL(expected, result);
 }
+CTEST(queen, cant_move)
+{
+    int a[8][8];
+    FillMass(a);
+    const int i=4;
+    const int j=4;
+    const int i1=7;
+    const int j1=6;
+    const int result = CheckMove(a, i,j, i1, j1);
+
+    const int expected = 0;
+    ASSERT_EQUAL(expected, result);
+}
+CTEST(not, there_isnt_figure)
+{
+    int a[8][8];
+    FillMass(a);
+    const int i=5;
+    const int j=5;
+    const int i1=7;
+    const int j1=6;
+    const int result = CheckMove(a, i,j, i1, j1);
+
+    const int expected = 4;
+    ASSERT_EQUAL(expected, result);
+}
+CTEST(queen, to_enemy)
+{
+    int a[8][8];
+    FillMass(a);
+    a[6][6]=10;
+    const int i=4;
+    const int j=4;
+    const int i1=6;
+    const int j1=6;
+    const int result = CheckMove(a, i,j, i1, j1);
+
+    const int expected = 2;
+    ASSERT_EQUAL(expected, result);
+}
+CTEST(queen, to_friend)
+{
+    int a[8][8];
+    FillMass(a);
+    a[6][6]=5;
+    const int i=4;
+    const int j=4;
+    const int i1=6;
+    const int j1=6;
+    const int result = CheckMove(a, i,j, i1, j1);
+
+    const int expected = 3;
+    ASSERT_EQUAL(expected, result);
+}
